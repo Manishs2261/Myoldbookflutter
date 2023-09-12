@@ -1,6 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myoldbook/src/controller/listview_widget.dart';
+import 'package:myoldbook/src/data/repository/apis.dart';
 import 'package:myoldbook/src/modal/oldbookmode/modal.dart';
 
 import '../../utils/strings/home_image.dart';
@@ -49,7 +52,7 @@ class _NewBookState extends State<NewBook> {
 
     setState(() {
 
-      display_lis = main_list.where((element) => element.name!.toLowerCase().contains(value.toLowerCase())).toList();
+      display_lis = main_list.where((element) => element.name.toLowerCase().contains(value.toLowerCase())).toList();
     });
   }
 
@@ -63,16 +66,19 @@ class _NewBookState extends State<NewBook> {
           children: [
 
             Container(
+              alignment: Alignment.center,
               padding: EdgeInsets.symmetric(horizontal: 25,vertical: 12),
               width: double.infinity,
               height: 70,
               color: Colors.cyan,
+
 
               child: TextFormField(
                 autofocus: false,
                 autocorrect: true,
                 keyboardType: TextInputType.text,
                 decoration: InputDecoration(
+
                     fillColor: Colors.blueGrey.shade50,
                     filled: true,
                     border: OutlineInputBorder(),
@@ -90,8 +96,7 @@ class _NewBookState extends State<NewBook> {
 
             Expanded(
               // =============call a class ==================
-              child:    ListViewWidget(display_lis: display_lis),
-
+              child:    ListViewWidget(display_lis: display_lis)
             )
           ],
 

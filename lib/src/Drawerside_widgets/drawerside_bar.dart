@@ -57,10 +57,7 @@ class Drawerside extends StatelessWidget {
                       Container(
                         height: 30,
                         color: Colors.blueGrey,
-
-
                         child: OutlinedButton(
-
                           onPressed: (){
                             Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginScreen()));
 
@@ -68,7 +65,8 @@ class Drawerside extends StatelessWidget {
                           child: Text('Login',style: TextStyle(color: Colors.white),),
 
                         ),
-                      )
+                      ),
+
                     ],
                   )
                 ],

@@ -33,7 +33,7 @@ class ListViewWidget extends StatelessWidget {
                   },
                   child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 8.0),
-                    height: 200,
+                    height: 180,
 
                     color: Colors.blueGrey[50],
 
@@ -56,68 +56,60 @@ class ListViewWidget extends StatelessWidget {
                               Image(image: AssetImage(display_lis[index].images),height: 170,width: 120,fit: BoxFit.fill,),
                               SizedBox(width: 10.0,),
 
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                              Expanded(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
 
-                                children: [
+                                  children: [
 
-                                  Text(display_lis[index].name,style: TextStyle(
-                                      fontSize: 16,fontWeight: FontWeight.w500,
-                                      color: Colors.black87
-                                  ),),
-
-
-                                  Row(
-
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    Text(display_lis[index].name,style: TextStyle(
+                                        fontSize: 16,fontWeight: FontWeight.w500,
+                                        color: Colors.black87
+                                    ),overflow:  TextOverflow.ellipsis, softWrap: false,maxLines: 2,),
 
 
-                                    children: [
+                                    Text("Author  Name - ${display_lis[index].author}",
+                                      maxLines: 1,overflow:  TextOverflow.ellipsis, softWrap: false,),
 
-                                      Text("Author Name - ${display_lis[index].author}",maxLines: 1,overflow:  TextOverflow.ellipsis, softWrap: false,),
-                                     //SizedBox(width: medialquery.width * 0.1,),
-                                      //Text(display_lis[index].data),
-                                    ],
-                                  ),
+                                    SizedBox(height: 8.0,),
 
-                                  SizedBox(height: 8.0,),
-
-                                  Text('Editaion - ${display_lis[index].editation!}'),
-                                  SizedBox(height: 8.0,),
+                                    Text('Editaion - ${display_lis[index].editation}', maxLines: 1,overflow:  TextOverflow.ellipsis, softWrap: false,),
+                                    SizedBox(height: 8.0,),
 
 
 
-                                  Row(
-                                    children: [
-                                      Text('₹ ${display_lis[index].oldprice!}/-',style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 17,
-                                      ),),
-                                      SizedBox(width: 90,),
-                                      Text( '₹ ${display_lis[index].newprice!}/-',style: TextStyle(
+                                    Row(
+                                      children: [
+                                        Text('₹ ${display_lis[index].oldprice}/-',style: TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 15,
-                                          decoration: TextDecoration.lineThrough,
-                                          color: Colors.red[200]
-                                      ),),
-                                    ],
-                                  ),
+                                          fontSize: 19,
+                                        ), maxLines: 1,overflow:  TextOverflow.ellipsis, softWrap: false,),
+                                         SizedBox(width:  medialquery.width * .1,),
+                                        Text("MRP :- "),
+                                        Text( '₹ ${display_lis[index].newprice}/-',style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 14,
+                                            decoration: TextDecoration.lineThrough,
+                                            color: Colors.red[200]
+                                        ), maxLines: 1,overflow:  TextOverflow.ellipsis, softWrap: false,),
+                                      ],
+                                    ),
 
 
 
 
-                                  SizedBox(height: 8.0,),
-                                  Text(display_lis[index].city!,style: TextStyle(
+                                    SizedBox(height: 8.0,),
+                                    Text('${display_lis[index].city}',style: TextStyle(
 
-                                    fontSize: 14,fontWeight: FontWeight.bold,
-                                  ),),
+                                      fontSize: 15,fontWeight: FontWeight.bold,
+                                    ), maxLines: 1,overflow:  TextOverflow.ellipsis, softWrap: false,),
 
-                                  SizedBox(height: 8.0,),
-                                  Text("Delivery by26 Jun, Monday"),
+                                    SizedBox(height: 8.0,),
+                                    Text("Delivery by26 Jun, Monday", maxLines: 2,overflow:  TextOverflow.ellipsis, softWrap: false,),
 
-                                ],
+                                  ],
+                                ),
                               )
                             ],
                           ),

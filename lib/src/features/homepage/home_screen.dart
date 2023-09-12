@@ -4,6 +4,7 @@ import 'package:myoldbook/src/Drawerside_widgets/drawerside_bar.dart';
 import 'package:myoldbook/src/features/newbook_screen/newbook.dart';
 import 'package:myoldbook/src/features/notificaation/notification.dart';
 import 'package:myoldbook/src/features/oldbbook_Screen/oldbook.dart';
+import 'package:myoldbook/src/features/searchPage/searchPage.dart';
 
 import '../../utils/strings/home_image.dart';
 
@@ -29,50 +30,33 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text("Home"),
 
         actions: [
-
           Padding(
-            padding: const EdgeInsets.only(right: 15),
+            padding: const EdgeInsets.only(right: 12),
             child: CircleAvatar(
-
-
-              child: IconButton(icon: Icon(Icons.notifications_outlined),
+              child: IconButton(icon: Icon(Icons.search_outlined),
                   onPressed: (){
-
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => NotifiactionScreen() ));
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => SearchPage() ));
                   },),
 
 
             ),
 
           ),
-
           Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
+            padding: const EdgeInsets.only(right: 10),
+            child: CircleAvatar(
 
-              padding: EdgeInsets.symmetric(horizontal: 10,
-                  vertical: 0),
-
-              decoration: BoxDecoration(
-                  border: Border.all(color: Colors.yellow),
-                  borderRadius: BorderRadius.circular(15)
-              ),
-              child: Row(
-                children: [
-                  Icon(Icons.blur_circular,
-                    size: 25,
-                    color: Colors.yellow[800],),
-                  SizedBox(width: 5,),
-                  Text("0",
-                    style: TextStyle(
-                        color: Colors.black
-                    ),),
+              child: IconButton(icon: Icon(Icons.notifications_outlined),
+                onPressed: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => NotifiactionScreen() ));
+                },),
 
 
-                ],
-              ),
             ),
+
           ),
+
+
              ],
       ),
 
