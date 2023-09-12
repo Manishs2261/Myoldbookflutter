@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:myoldbook/src/features/oldbbook_Screen/modal.dart';
+import 'package:myoldbook/main.dart';
+import 'package:myoldbook/src/modal/oldbookmode/modal.dart';
 import 'package:myoldbook/src/features/oldbbook_Screen/oldbook_datailscreen.dart';
 
 class ListViewWidget extends StatelessWidget {
@@ -15,6 +16,7 @@ class ListViewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    medialquery = MediaQuery.of(context).size;
     return ListView.builder(
         itemCount: display_lis.length,
         itemBuilder: (BuildContext context, int index) {
@@ -27,7 +29,7 @@ class ListViewWidget extends StatelessWidget {
                 GestureDetector(
                   onTap: (){
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) =>DatailOldBook(  oldname: display_lis[index].name, oldimage:display_lis[index].images,oldauthor: display_lis[index].author,oldeditation: display_lis[index].editation,oldnewprice:display_lis[index].newprice,oldprice:display_lis[index].oldprice,) ));
+                        builder: (context) =>DatailOldBook( oldname: display_lis[index].name, oldimage:display_lis[index].images,oldauthor: display_lis[index].author,oldeditation: display_lis[index].editation,oldnewprice:display_lis[index].newprice,oldprice:display_lis[index].oldprice,) ));
                   },
                   child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 8.0),
@@ -51,7 +53,7 @@ class ListViewWidget extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
 
                             children: [
-                              Image(image: AssetImage(display_lis[index].images!),height: 180,width: 140,fit: BoxFit.fill,),
+                              Image(image: AssetImage(display_lis[index].images),height: 170,width: 120,fit: BoxFit.fill,),
                               SizedBox(width: 10.0,),
 
                               Column(
@@ -60,11 +62,11 @@ class ListViewWidget extends StatelessWidget {
 
                                 children: [
 
-                                  Text(display_lis[index].name!,style: TextStyle(
-                                      fontSize: 18,fontWeight: FontWeight.bold,
-                                      color: Colors.black
+                                  Text(display_lis[index].name,style: TextStyle(
+                                      fontSize: 16,fontWeight: FontWeight.w500,
+                                      color: Colors.black87
                                   ),),
-                                  SizedBox(height: 8.0,),
+
 
                                   Row(
 
@@ -74,9 +76,9 @@ class ListViewWidget extends StatelessWidget {
 
                                     children: [
 
-                                      Text(display_lis[index].author!),
-                                      SizedBox(width: 70,),
-                                      Text(display_lis[index].data!),
+                                      Text("Author Name - ${display_lis[index].author}",maxLines: 1,overflow:  TextOverflow.ellipsis, softWrap: false,),
+                                     //SizedBox(width: medialquery.width * 0.1,),
+                                      //Text(display_lis[index].data),
                                     ],
                                   ),
 

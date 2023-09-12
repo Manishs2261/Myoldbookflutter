@@ -2,8 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:myoldbook/src/features/splasescreen/splasescreen_controler.dart';
-import 'package:myoldbook/src/strings/home_image.dart';
+import 'package:myoldbook/src/view_model/splashServercies/splasescreen_controler.dart';
+
+import '../../utils/strings/home_image.dart';
+
 
 class SplashScreenFirst extends StatelessWidget {
   SplashScreenFirst({super.key});

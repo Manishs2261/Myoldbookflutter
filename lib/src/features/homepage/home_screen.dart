@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:myoldbook/main.dart';
 import 'package:myoldbook/src/Drawerside_widgets/drawerside_bar.dart';
 import 'package:myoldbook/src/features/newbook_screen/newbook.dart';
 import 'package:myoldbook/src/features/notificaation/notification.dart';
 import 'package:myoldbook/src/features/oldbbook_Screen/oldbook.dart';
-import 'package:myoldbook/src/strings/colors_.dart';
-import 'package:myoldbook/src/strings/home_image.dart';
+
+import '../../utils/strings/home_image.dart';
+
 
 class HomeScreen extends StatefulWidget {
    HomeScreen({super.key});
@@ -18,12 +20,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    medialquery = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white60,
 
       appBar: AppBar(
-
-
 
         title: Text("Home"),
 

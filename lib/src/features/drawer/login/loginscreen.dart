@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:myoldbook/src/strings/home_image.dart';
 
 
+
+import '../../../utils/strings/home_image.dart';
 import 'login_floder_widgets.dart';
 import 'login_from.dart';
 import 'login_hader_widget.dart';

@@ -7,10 +7,9 @@ import 'package:myoldbook/src/features/homepage/home_screen.dart';
 import 'package:myoldbook/src/features/newbook_screen/newbook.dart';
 import 'package:myoldbook/src/features/oldbbook_Screen/oldbook.dart';
 import 'package:myoldbook/src/features/splasescreen/splasepage.dart';
-import 'package:myoldbook/src/strings/colors_.dart';
-import 'package:myoldbook/src/strings/colors_.dart';
-import 'package:myoldbook/src/strings/colors_.dart';
 
+//globel object for accessing device scren size
+late Size  medialquery;
 
 void main() {
   runApp(const MyApp());

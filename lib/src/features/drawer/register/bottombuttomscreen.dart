@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:myoldbook/src/strings/home_image.dart';
+
+import '../../../utils/strings/home_image.dart';
+
 
 
 

@@ -13,7 +13,8 @@ import 'package:myoldbook/src/features/drawer/rating/rating.dart';
 import 'package:myoldbook/src/features/drawer/register/singscerrnn.dart';
 import 'package:myoldbook/src/features/drawer/transaction/transaction.dart';
 
-import 'package:myoldbook/src/strings/home_image.dart';
+import '../utils/strings/home_image.dart';
+
 
 class Drawerside extends StatelessWidget {
 

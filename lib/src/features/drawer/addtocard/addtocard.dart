@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myoldbook/src/controller/listview_widget.dart';
-import 'package:myoldbook/src/features/oldbbook_Screen/modal.dart';
-import 'package:myoldbook/src/strings/home_image.dart';
+import 'package:myoldbook/src/modal/oldbookmode/modal.dart';
+
+import '../../../utils/strings/home_image.dart';
 
 class AddToCard extends StatefulWidget {
   const AddToCard({super.key});

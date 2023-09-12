@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:myoldbook/src/controller/datailsbook_widgets.dart';
 import 'package:myoldbook/src/features/buynow/buynow_page.dart';
-import 'package:myoldbook/src/strings/home_image.dart';
 
 
 

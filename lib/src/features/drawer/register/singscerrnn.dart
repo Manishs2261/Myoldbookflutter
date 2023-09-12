@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:myoldbook/src/features/drawer/login/forgetpassword/forget_widgets.dart';
 import 'package:myoldbook/src/features/drawer/register/signform_screen.dart';
-import 'package:myoldbook/src/strings/home_image.dart';
 
 
+
+import '../../../utils/strings/home_image.dart';
 import 'bottombuttomscreen.dart';
 
 class SignScreen extends StatelessWidget {
