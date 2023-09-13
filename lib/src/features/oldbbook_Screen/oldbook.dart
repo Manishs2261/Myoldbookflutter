@@ -1,6 +1,11 @@
  
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:myoldbook/src/controller/listview_widget.dart';
+import 'package:myoldbook/src/data/repository/apis.dart';
+import 'package:myoldbook/src/modal/oldBook_model/oldbookModel.dart';
 import 'package:myoldbook/src/modal/oldbookmode/modal.dart';
 import 'package:myoldbook/src/features/oldbbook_Screen/oldbook_datailscreen.dart';
 
@@ -10,7 +15,11 @@ import '../../utils/strings/home_image.dart';
 
 
 class OldBookScreen extends StatefulWidget {
-   OldBookScreen({super.key});
+
+
+
+
+   OldBookScreen( {super.key});
 
 
   @override
@@ -19,6 +28,8 @@ class OldBookScreen extends StatefulWidget {
 }
 
 class _OldBookScreenState extends State<OldBookScreen> {
+
+   List<OldBookModelClass> oldList =[];
 
 
   static List<OldBookModal> main_list = [OldBookModal("CGPSC-PRE-MAIN", oldbook1, "premer IAS","2th", "21/02/2022", "Bialspur","250", "500"),
@@ -41,7 +52,7 @@ class _OldBookScreenState extends State<OldBookScreen> {
 
     setState(() {
 
-      display_lis = main_list.where((element) => element.name!.toLowerCase().contains(value.toLowerCase())).toList();
+      display_lis = main_list.where((element) => element.name.toLowerCase().contains(value.toLowerCase())).toList();
     });
   }
 
@@ -50,54 +61,33 @@ class _OldBookScreenState extends State<OldBookScreen> {
   @override
   Widget build(BuildContext context) {
 
-
-
     return Scaffold(
+      body: StreamBuilder(
+        stream: Apis.firestore.collection("OldbookDetails").snapshots(),
+        builder: (context,snapshot){
+
+          switch(snapshot.connectionState)
+          {
+            case ConnectionState.waiting:
+            case ConnectionState.none:
+              return Center(child: CircularProgressIndicator(),);
+            case ConnectionState.active:
+            case ConnectionState.done:
+
+              final data  = snapshot.data?.docs;
+              oldList = data?.map((e) => OldBookModelClass.fromJson(e.data())).toList() ?? [];
+            return ListView.builder(
+                itemCount:  oldList.length,
+                itemBuilder: (context,index){
+                  return Text('${oldList[index].oldName}');
+                }) ;
+          }
 
 
-      body: SafeArea(
-        child: Column(
-          children: [
-
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 25,vertical: 12),
-              width: double.infinity,
-              height: 70,
-              color: Colors.cyan,
-
-              child: TextFormField(
-                autofocus: false,
-                autocorrect: true,
-              keyboardType: TextInputType.text,
-                decoration: InputDecoration(
-                fillColor: Colors.blueGrey.shade50,
-                  filled: true,
-                  border: OutlineInputBorder(),
-                  prefixIcon: Icon(Icons.search_outlined),
-                  suffixIcon: Icon(Icons.mic_outlined),
-                  hintText: "Search Here",
-
-                ),
-                onChanged: (value) => updateList(value),
 
 
-              ),
-
-            ),
-
-            Expanded(
-              // =============call a class ==================
-                child:    ListViewWidget(display_lis: display_lis),
-
-            )
-          ],
-
-        ),
+        },
       ),
-
-
-
-
     );
 
 
